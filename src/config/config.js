@@ -1,0 +1,20 @@
+'use strict';
+
+require('dotenv').config(); // <-- this is critical!
+
+// dotenv.config();
+module.exports = {
+  development: {
+    username: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'qqqq',
+    database: process.env.DB_NAME || 'ecommerce_dev',
+    host: process.env.DB_HOST || '127.0.0.1',
+    dialect: 'mysql',
+  },
+  up: async (queryInterface, Sequelize) => {
+    // migration code
+  },
+  down: async (queryInterface, Sequelize) => {
+    // revert code
+  }
+};
