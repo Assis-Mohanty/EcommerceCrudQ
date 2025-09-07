@@ -1,5 +1,4 @@
 import express from 'express';
-import { pingHandler } from '../../controllers/ping.controller';
 import {  validateRequestBody } from '../../validators';
 import { userSchema } from '../../validators/user.validator';
 import { createUserHandler, deleteUserHandler, getAllUsersHandler, getUserHandler, updateUserHandler } from '../../controllers/user.controller';
@@ -7,7 +6,7 @@ import { authRequired } from '../../middlewares/auth';
 
 const userRouter = express.Router();
 userRouter.use(authRequired); 
-userRouter.post('/', validateRequestBody(userSchema), createUserHandler); 
+userRouter.post('/auth/signup', validateRequestBody(userSchema), createUserHandler); 
 userRouter.get('/:id', validateRequestBody(userSchema), getUserHandler); 
 userRouter.get('/', validateRequestBody(userSchema), getAllUsersHandler);
 userRouter.delete('/:id', validateRequestBody(userSchema), deleteUserHandler);
