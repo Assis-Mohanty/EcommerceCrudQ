@@ -1,12 +1,12 @@
-import {Model, InferAttributes,InferCreationAttributes,CreationOptional, DataTypes} from "sequelize"
+import {Model, InferAttributes,InferCreationAttributes,CreationOptional} from "sequelize"
 import sequelize from "./sequelize";
 
 class User extends Model<InferAttributes<User>,InferCreationAttributes<User>>{
     declare id: CreationOptional<number>;
-    declare name:string;
-    declare email:string;
+    declare name?:string;
+    declare email?:string;
     declare passwordHash:string;
-    declare isAdmin:Boolean|false;
+    declare isAdmin:Boolean;
     declare createdAt:CreationOptional<Date>;
     declare updatedAt:CreationOptional<Date>;
 }
